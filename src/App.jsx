@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 
 import MainLayout from "./layout/MainLayout";
 import Contact from "./pages/contact/Contact";
@@ -8,7 +8,7 @@ import Portfolio from "./pages/portfolio/Portfolio";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <MainLayout>
           <Routes>
             <Route index element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </MainLayout>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
