@@ -1,0 +1,131 @@
+[
+  {
+    "Name": "ai-summarizer",
+    "Title": "AI Summarizer",
+    "Tech Stack": ["JavaScript", "React", "OpenAI"],
+    "Source Code": "https://github.com/maheshhbalwan/ai-summarizer",
+    "Deployment Link": "https://ai-summarizer-maheshhbalwan.netlify.app",
+    "Tags": ["AI", "Summarizer", "JavaScript", "React", "OpenAI"],
+    "Status": "Completed",
+    "Image": "/public/ai-summarizer.svg"
+  },
+  {
+    "Name": "crypto-fomo-calculator",
+    "Title": "Crypto FOMO Calculator",
+    "Tech Stack": ["Python"],
+    "Source Code": "https://github.com/maheshhbalwan/crypto-fomo-calculator",
+    "Deployment Link": "https://share.streamlit.io/maheshhbalwan/crypto-fomo-calculator/main/crypto_fomo_calculator.py",
+    "Youtube Link": "https://www.youtube.com/watch?v=5sQUFfdlG3c",
+    "Status": "Completed",
+    "Tags": ["Crypto", "FOMO", "Calculator"],
+    "Image": "/public/crypto-fomo-calculator.svg"
+  },
+  {
+    "Name": "to-do-app-reactjs-tailwindcss",
+    "Title": "To-Do App",
+    "Tech Stack": ["JavaScript", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/to-do-app-reactjs-tailwindcss",
+    "Deployment Link": "https://maheshhbalwan.github.io/to-do-app-reactjs-tailwindcss",
+    "Tags": ["To-Do", "App", "ReactJS", "TailwindCSS"],
+    "Image": "/public/to-do-app.svg"
+  },
+  {
+    "Name": "react-native-tesla-clone",
+    "Title": "React Native Tesla Clone",
+    "Tech Stack": ["React Native", "JavaScript", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/react-native-tesla-clone",
+    "Deployment Link": null,
+    "Tags": ["React Native", "Tesla", "Clone"],
+    "Image": "../tesla clone.svg"
+  },
+  {
+    "Name": "Xchange-chrome-extension",
+    "Title": "Xchange Chrome Extension",
+    "Tech Stack": ["HTML", "CSS", "JavaScript", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/Xchange-chrome-extension",
+    "Deployment Link": null,
+    "Tags": ["Chrome Extension", "HTML", "CSS", "JavaScript"],
+    "Image": "/public/xchange chrome extension.svg"
+  },
+  {
+    "Name": "maheshhbalwan-web",
+    "Title": "Maheshh Balwan Portfolio",
+    "Tech Stack": ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/Xchange-chrome-extension",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript", "Portfolio"],
+    "Image": "/public/github portfolio.svg"
+  },
+  {
+    "Name": "pocket-money-react-app",
+    "Title": "Pocket Money App",
+    "Tech Stack": ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/pocket-money-react-app",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/pocket money.svg"
+  },
+  {
+    "Name": "react-github-api-RepoRadarApp",
+    "Title": "Repo Radar App",
+    "Tech Stack": ["HTML", "CSS", "JavaScript", "React", "TailwindCSS"],
+    "Source Code": "https://github.com/maheshhbalwan/react-github-api-RepoRadarApp",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/repo radar.svg"
+  },
+  {
+    "Name": "vanilla-js-projects",
+    "Title": "Vanilla JS Projects",
+    "Tech Stack": ["HTML", "CSS", "JavaScript"],
+    "Source Code": "https://github.com/maheshhbalwan/vanilla-js-projects",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/vanilla js.svg"
+  },
+  {
+    "Name": "nextjs-tech-articles-app",
+    "Title": "Tech Articles App",
+    "Tech Stack": ["HTML", "CSS", "JavaScript", "NextJS"],
+    "Source Code": "https://github.com/maheshhbalwan/nextjs-tech-articles-app",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/tech articles.svg"
+  },
+  {
+    "Name": "react-router-contacts-app",
+    "Title": "Contacts App",
+    "Tech Stack": ["HTML", "CSS", "JavaScript"],
+    "Source Code": "https://github.com/maheshhbalwan/react-router-contacts-app",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/contacts app.svg"
+  },
+  {
+    "Name": "react-redux-toolkit-BeverageStoreApp",
+    "Title": "Beverage Store App",
+    "Tech Stack": ["HTML", "CSS", "JavaScript"],
+    "Source Code": "https://github.com/maheshhbalwan/react-redux-toolkit-BeverageStoreApp",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript", "redux-toolkit", "e-commerce"],
+    "Image": "/public/beverage store app.svg"
+  },
+  {
+    "Name": "react-redux-demo",
+    "Title": "Redux Demo",
+    "Tech Stack": ["HTML", "CSS", "JavaScript"],
+    "Source Code": "https://github.com/maheshhbalwan/react-redux-demo",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript", "redux"],
+    "Image": "/public/redux demo.svg"
+  },
+  {
+    "Name": "airbnb",
+    "Title": "AirBnB",
+    "Tech Stack": ["HTML", "CSS", "JavaScript"],
+    "Source Code": "https://github.com/maheshhbalwan/airbnb",
+    "Deployment Link": null,
+    "Tags": ["HTML", "CSS", "JavaScript"],
+    "Image": "/public/airbnb.svg"
+  }
+]
