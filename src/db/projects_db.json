@@ -7,7 +7,7 @@
     "Deployment Link": "https://ai-summarizer-maheshhbalwan.netlify.app",
     "Tags": ["AI", "Summarizer", "JavaScript", "React", "OpenAI"],
     "Status": "Completed",
-    "Image": "/public/ai-summarizer.svg"
+    "Image": "/ai-summarizer.svg"
   },
   {
     "Name": "crypto-fomo-calculator",
@@ -18,7 +18,7 @@
     "Youtube Link": "https://www.youtube.com/watch?v=5sQUFfdlG3c",
     "Status": "Completed",
     "Tags": ["Crypto", "FOMO", "Calculator"],
-    "Image": "/public/crypto-fomo-calculator.svg"
+    "Image": "/crypto-fomo-calculator.svg"
   },
   {
     "Name": "to-do-app-reactjs-tailwindcss",
@@ -27,7 +27,7 @@
     "Source Code": "https://github.com/maheshhbalwan/to-do-app-reactjs-tailwindcss",
     "Deployment Link": "https://maheshhbalwan.github.io/to-do-app-reactjs-tailwindcss",
     "Tags": ["To-Do", "App", "ReactJS", "TailwindCSS"],
-    "Image": "/public/to-do-app.svg"
+    "Image": "/to-do-app.svg"
   },
   {
     "Name": "react-native-tesla-clone",
@@ -45,7 +45,7 @@
     "Source Code": "https://github.com/maheshhbalwan/Xchange-chrome-extension",
     "Deployment Link": null,
     "Tags": ["Chrome Extension", "HTML", "CSS", "JavaScript"],
-    "Image": "/public/xchange chrome extension.svg"
+    "Image": "/xchange chrome extension.svg"
   },
   {
     "Name": "maheshhbalwan-web",
@@ -54,7 +54,7 @@
     "Source Code": "https://github.com/maheshhbalwan/Xchange-chrome-extension",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript", "Portfolio"],
-    "Image": "/public/github portfolio.svg"
+    "Image": "/github portfolio.svg"
   },
   {
     "Name": "pocket-money-react-app",
@@ -63,7 +63,7 @@
     "Source Code": "https://github.com/maheshhbalwan/pocket-money-react-app",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/pocket money.svg"
+    "Image": "/pocket money.svg"
   },
   {
     "Name": "react-github-api-RepoRadarApp",
@@ -72,7 +72,7 @@
     "Source Code": "https://github.com/maheshhbalwan/react-github-api-RepoRadarApp",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/repo radar.svg"
+    "Image": "/repo radar.svg"
   },
   {
     "Name": "vanilla-js-projects",
@@ -81,7 +81,7 @@
     "Source Code": "https://github.com/maheshhbalwan/vanilla-js-projects",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/vanilla js.svg"
+    "Image": "/vanilla js.svg"
   },
   {
     "Name": "nextjs-tech-articles-app",
@@ -90,7 +90,7 @@
     "Source Code": "https://github.com/maheshhbalwan/nextjs-tech-articles-app",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/tech articles.svg"
+    "Image": "/tech articles.svg"
   },
   {
     "Name": "react-router-contacts-app",
@@ -99,7 +99,7 @@
     "Source Code": "https://github.com/maheshhbalwan/react-router-contacts-app",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/contacts app.svg"
+    "Image": "/contacts app.svg"
   },
   {
     "Name": "react-redux-toolkit-BeverageStoreApp",
@@ -108,7 +108,7 @@
     "Source Code": "https://github.com/maheshhbalwan/react-redux-toolkit-BeverageStoreApp",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript", "redux-toolkit", "e-commerce"],
-    "Image": "/public/beverage store app.svg"
+    "Image": "/beverage store app.svg"
   },
   {
     "Name": "react-redux-demo",
@@ -117,7 +117,7 @@
     "Source Code": "https://github.com/maheshhbalwan/react-redux-demo",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript", "redux"],
-    "Image": "/public/redux demo.svg"
+    "Image": "/redux demo.svg"
   },
   {
     "Name": "airbnb",
@@ -126,6 +126,6 @@
     "Source Code": "https://github.com/maheshhbalwan/airbnb",
     "Deployment Link": null,
     "Tags": ["HTML", "CSS", "JavaScript"],
-    "Image": "/public/airbnb.svg"
+    "Image": "/airbnb.svg"
   }
 ]

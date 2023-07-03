@@ -21,7 +21,12 @@ function Projects() {
               key={project.Name}
             >
               <div>
-                <img src={project.Image} alt="" className="rounded-lg" />
+                <img
+                  src={project.Image}
+                  alt=""
+                  className="rounded-lg"
+                  loading="lazy"
+                />
               </div>
               <div className="p-4">
                 <h3 className="mt-4 mb-2 text-xl font-bold">{project.Title}</h3>
