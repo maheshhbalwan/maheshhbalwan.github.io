@@ -13,7 +13,10 @@ export default function ProjectsListView() {
           return a.sequenceID - b.sequenceID;
         });
         setProjects(orderedProjects);
-        // setProjects(response.data);
+
+        // Log the Object IDs of fetched projects
+        console.log('Fetched projects:', orderedProjects.map(project => project._id));
+
       } catch (error) {
         console.error('An error occurred while fetching projects:', error);
       }
@@ -21,6 +24,24 @@ export default function ProjectsListView() {
 
     fetchProjects();
   }, []);
+
+  async function handleDelete(projectId) {
+    const confirmDelete = window.confirm("Are you sure you want to delete this project?");
+
+    if (confirmDelete) {
+      try {
+        console.log('Projects before deletion:', projects);
+
+        await axios.delete(`${API_BASE_URL}api/portfolio-projects/${projectId}`);
+
+        setProjects(projects.filter(project => project._id !== projectId));
+        console.log('Projects after deletion:', projects);
+      } catch (error) {
+        console.error('An error occurred while deleting the project:', error);
+      }
+    }
+  }
+
 
   return (
     <>
@@ -271,11 +292,14 @@ export default function ProjectsListView() {
                     <th scope="col" className="px-4 py-3">
                       Github URL
                     </th>
+                    <th scope="col" className="px-4 py-3">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {projects.map(project => (
-                    <tr key={project.sequenceID} className="border-b">
+                    <tr key={project._id} className="border-b">
                       <td
                         scope="row"
                         className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap"
@@ -294,6 +318,15 @@ export default function ProjectsListView() {
                         <a href={project.sourceCodeURL} target="_blank" rel="noopener noreferrer">
                           View Code
                         </a>
+                      </td>
+                      <td className="px-4 py-3">
+                        {/* <span>{project._id}</span> */}
+                        <button
+                          onClick={() => handleDelete(project._id)}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
