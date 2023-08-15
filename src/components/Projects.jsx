@@ -1,8 +1,7 @@
-import React from "react";
-import projects from "../../db/projects_db.json";
-import { ArrowIcon, GitHubIcon, YoutubeIcon } from "../../components/icons";
+import projects from "../db/projects_db.json";
+import { ArrowIcon, GitHubIcon, YoutubeIcon } from "./icons";
 
-function Projects() {
+export default function Projects() {
   return (
     <section className="bg-white">
       <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:px-6">
@@ -34,7 +33,6 @@ function Projects() {
                 <p className="text-gray-500">
                   Tech Stack: {project["Tech Stack"].join(", ")}
                 </p>
-
                 <div className="flex gap-4 mt-4">
                   {project["Source Code"] && (
                     <a
@@ -78,5 +76,3 @@ function Projects() {
     </section>
   );
 }
-
-export default Projects;
