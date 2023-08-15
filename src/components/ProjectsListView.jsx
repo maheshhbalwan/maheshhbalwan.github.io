@@ -26,22 +26,28 @@ export default function ProjectsListView() {
   }, []);
 
   async function handleDelete(projectId) {
-    const confirmDelete = window.confirm("Are you sure you want to delete this project?");
+    const userAuthKey = window.prompt("Enter your AUTH KEY:");
+    const expectedAuthKey = import.meta.env.VITE_AUTH_KEY;
 
-    if (confirmDelete) {
-      try {
-        console.log('Projects before deletion:', projects);
+    if (userAuthKey === expectedAuthKey) {
+      const confirmDelete = window.confirm("Are you sure you want to delete this project?");
 
-        await axios.delete(`${API_BASE_URL}api/portfolio-projects/${projectId}`);
+      if (confirmDelete) {
+        try {
+          console.log('Projects before deletion:', projects);
 
-        setProjects(projects.filter(project => project._id !== projectId));
-        console.log('Projects after deletion:', projects);
-      } catch (error) {
-        console.error('An error occurred while deleting the project:', error);
+          await axios.delete(`${API_BASE_URL}api/portfolio-projects/${projectId}`);
+
+          setProjects(projects.filter(project => project._id !== projectId));
+          console.log('Projects after deletion:', projects);
+        } catch (error) {
+          console.error('An error occurred while deleting the project:', error);
+        }
       }
+    } else {
+      window.alert('Invalid AUTH KEY. Deletion not allowed.');
     }
   }
-
 
   return (
     <>

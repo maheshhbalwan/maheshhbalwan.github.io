@@ -37,19 +37,40 @@ export default function ProjectsAddNew() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(`${API_BASE_URL}api/portfolio-projects`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const data = response.data;
-      console.log(data);
-      setSubmissionSuccess(true);
-    } catch (error) {
-      console.error('Error creating project:', error);
+
+    const userAuthKey = window.prompt("Enter your AUTH KEY:");
+    const expectedAuthKey = import.meta.env.VITE_AUTH_KEY;
+
+    if (userAuthKey === expectedAuthKey) {
+      const isAddingItem = window.confirm('Authentication successful!\nDo you want to add an item?');
+
+      if (isAddingItem) {
+        try {
+          const response = await axios.post(`${API_BASE_URL}api/portfolio-projects`, formData, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+
+          if (response.status === 201) {
+            console.log('Project created:', response.data);
+            window.alert('Thank you for your submission!');
+          } else {
+            console.error('Unexpected response:', response);
+            window.alert('Submission failed. Please try again later.');
+          }
+        } catch (error) {
+          console.error('Error creating project:', error);
+          window.alert('An error occurred while creating the project. Please try again later.');
+        }
+      } else {
+        console.log('Item addition was not confirmed.');
+      }
+    } else {
+      window.alert('Invalid AUTH KEY. Project creation not allowed.');
     }
   };
+
   return (
     <div className="max-w-xl p-6 mx-auto bg-white rounded-lg shadow">
       <h2 className="mb-4 text-2xl font-semibold">Create a New Portfolio Project</h2>
