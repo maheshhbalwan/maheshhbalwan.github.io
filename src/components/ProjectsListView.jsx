@@ -5,6 +5,7 @@ const API_BASE_URL = import.meta.env.VITE_BASE_URL;
 function ProjectsListView() {
   const [projects, setProjects] = useState([]);
   const [selectedProjects, setSelectedProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -12,18 +13,21 @@ function ProjectsListView() {
       try {
         console.log('Trying to fetch projects');
         const response = await axios.get(`${API_BASE_URL}api/portfolio-projects`);
-        const orderedProjects = response.data.sort((a, b) => {
-          return a.sequenceID - b.sequenceID;
-        });
+        const orderedProjects = response.data.sort((a, b) => a.sequenceID - b.sequenceID);
         setProjects(orderedProjects);
-
-        console.log('Fetched projects:', orderedProjects.map(project => project._id));
-
+        setLoading(false);
+        console.log('Fetched projects:', orderedProjects.map((project) => project._id));
       } catch (error) {
-        console.error('An error occurred while fetching projects:', error);
+        if (error.isAxiosError && error.response) {
+          console.error('Server error:', error.response.status, error.response.data);
+        } else if (error.isAxiosError) {
+          console.error('Network error:', error.message);
+        } else {
+          console.error('An error occurred:', error);
+        }
+        setLoading(false);
       }
     }
-
     fetchProjects();
   }, []);
 
@@ -217,6 +221,7 @@ function ProjectsListView() {
                     </div>
                   </div>
                 </div>
+
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
@@ -275,91 +280,98 @@ function ProjectsListView() {
                       <th scope="col" className="px-6 py-3 text-right" />
                     </tr>
                   </thead>
+
                   <tbody className="divide-y divide-gray-200">
-                    {projects
-                      .filter((project) => project.visibility === true)
-                      .map((project, index) => (
-                        <tr key={index} className="border-t border-gray-200">
-                          <td className="w-px h-px whitespace-nowrap">
-                            <div className="py-3 pl-6">
-                              <label htmlFor={`hs-at-with-checkboxes-${index}`} className="flex">
-                                <input
-                                  type="checkbox"
-                                  className="text-blue-600 border-gray-200 rounded pointer-events-none"
-                                  id={`hs-at-with-checkboxes-${index}`}
-                                  onChange={() => {
-                                    if (selectedProjects.includes(project)) {
-                                      setSelectedProjects(selectedProjects.filter((p) => p !== project));
-                                    } else {
-                                      setSelectedProjects([...selectedProjects, project]);
-                                    }
-                                  }}
-                                />
-                                <span className="sr-only">Checkbox</span>
-                              </label>
-                            </div>
-                          </td>
-                          <td className="w-px h-px whitespace-nowrap">
-                            <a target="_blank" rel="noopener noreferrer" href={`#/project/${project._id}`}>
-                              <div className="py-3 pl-6 pr-6 lg:pl-3 xl:pl-0">
-                                <div className="flex items-center space-x-3">
-                                  <img className="inline-block w-10 h-10" src={project.imageURL} alt="Project" />
-                                  <div className="flex-grow">
-                                    <span className="block text-sm font-semibold text-gray-800">
-                                      {project.title}
-                                    </span>
-                                    <span className="block text-sm text-gray-500">
-                                      {project.description ? project.description.slice(0, 50) + "..." : ''}
-                                    </span>
+                    {loading ? (
+                      <div className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : (
+                      projects
+                        .filter((project) => project.visibility === true)
+                        .map((project, index) => (
+                          <tr key={index} className="border-t border-gray-200">
+                            <td className="w-px h-px whitespace-nowrap">
+                              <div className="py-3 pl-6">
+                                <label htmlFor={`hs-at-with-checkboxes-${index}`} className="flex">
+                                  <input
+                                    type="checkbox"
+                                    className="text-blue-600 border-gray-200 rounded pointer-events-none"
+                                    id={`hs-at-with-checkboxes-${index}`}
+                                    onChange={() => {
+                                      if (selectedProjects.includes(project)) {
+                                        setSelectedProjects(selectedProjects.filter((p) => p !== project));
+                                      } else {
+                                        setSelectedProjects([...selectedProjects, project]);
+                                      }
+                                    }}
+                                  />
+                                  <span className="sr-only">Checkbox</span>
+                                </label>
+                              </div>
+                            </td>
+                            <td className="w-px h-px whitespace-nowrap">
+                              <a target="_blank" rel="noopener noreferrer" href={`#/project/${project._id}`}>
+                                <div className="py-3 pl-6 pr-6 lg:pl-3 xl:pl-0">
+                                  <div className="flex items-center space-x-3">
+                                    <img className="inline-block w-10 h-10" src={project.imageURL} alt="Project" />
+                                    <div className="flex-grow">
+                                      <span className="block text-sm font-semibold text-gray-800">
+                                        {project.title}
+                                      </span>
+                                      <span className="block text-sm text-gray-500">
+                                        {project.description ? project.description.slice(0, 50) + "..." : ''}
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </a>
-                          </td>
-                          <td className="w-px h-px whitespace-nowrap">
-                            <div className="px-6 py-3">
-                              <span className="block text-sm font-semibold text-gray-800">
-                                {project.projectCategory}
-                              </span>
-                              <span className="block text-sm text-gray-500">{project.projectSubCategory}</span>
-                            </div>
-                          </td>
-                          <td className="w-px h-px whitespace-nowrap">
-                            {project.youtubeURL && (
+                              </a>
+                            </td>
+                            <td className="w-px h-px whitespace-nowrap">
                               <div className="px-6 py-3">
-                                <a href={project.youtubeURL} target="_blank" rel="noopener noreferrer">
-                                  <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                                    Video
-                                  </span>
-                                </a>
+                                <span className="block text-sm font-semibold text-gray-800">
+                                  {project.projectCategory}
+                                </span>
+                                <span className="block text-sm text-gray-500">{project.projectSubCategory}</span>
                               </div>
-                            )}
-                          </td>
+                            </td>
+                            <td className="w-px h-px whitespace-nowrap">
+                              {project.youtubeURL && (
+                                <div className="px-6 py-3">
+                                  <a href={project.youtubeURL} target="_blank" rel="noopener noreferrer">
+                                    <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                      Video
+                                    </span>
+                                  </a>
+                                </div>
+                              )}
+                            </td>
 
-                          <td className="w-px h-px whitespace-nowrap">
-                            {project.sourceCodeURL && (
-                              <div className="px-6 py-3">
-                                <a href={project.sourceCodeURL} target="_blank" rel="noopener noreferrer">
-                                  <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                                    Code
-                                  </span>
-                                </a>
-                              </div>
-                            )}
-                          </td>
-                          <td className="w-px h-px whitespace-nowrap">
-                            {project.demoURL && (
-                              <div className="px-6 py-3">
-                                <a href={project.demoURL} target="_blank" rel="noopener noreferrer">
-                                  <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                                    Live Link
-                                  </span>
-                                </a>
-                              </div>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
+                            <td className="w-px h-px whitespace-nowrap">
+                              {project.sourceCodeURL && (
+                                <div className="px-6 py-3">
+                                  <a href={project.sourceCodeURL} target="_blank" rel="noopener noreferrer">
+                                    <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                      Code
+                                    </span>
+                                  </a>
+                                </div>
+                              )}
+                            </td>
+                            <td className="w-px h-px whitespace-nowrap">
+                              {project.demoURL && (
+                                <div className="px-6 py-3">
+                                  <a href={project.demoURL} target="_blank" rel="noopener noreferrer">
+                                    <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                      Live Link
+                                    </span>
+                                  </a>
+                                </div>
+                              )}
+                            </td>
+                          </tr>
+                        ))
+                    )}
                   </tbody>
                 </table>
 
