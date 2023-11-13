@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GitHubIcon, YoutubeIcon } from './Icons';
+import { GitHubIcon, VideoIcon } from './Icons';
 import axios from 'axios';
 import { LuGlobe } from "react-icons/lu";
 import YouTubePlayer from './YouTubePlayer';
@@ -38,43 +38,101 @@ export default function ProjectsGridView() {
   };
   return (
     <>
+      <ol
+        className="flex items-center min-w-0 whitespace-nowrap"
+        aria-label="Breadcrumb"
+      >
+        <li className="text-sm">
+          <a className="flex items-center text-gray-500 hover:text-blue-600" href="#">
+            Home
+            <svg
+              className="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-gray-400 "
+              width={16}
+              height={16}
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li className="text-sm">
+          <a className="flex items-center text-gray-500 hover:text-blue-600" href="#/portfolio">
+            Portfolio
+            <svg
+              className="flex-shrink-0 mx-3 overflow-visible h-2.5 w-2.5 text-gray-400 "
+              width={16}
+              height={16}
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          className="text-sm font-semibold text-gray-800 truncate "
+          aria-current="page"
+        >
+          Grid View
+        </li>
+      </ol>
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.filter((project) => project.visibility === true)
             .map((project) => (
-              <div key={project._id} className="flex flex-col h-full bg-white border border-gray-200 shadow-sm group rounded-xl">
-                <div className="flex flex-col items-center justify-center h-52 rounded-t-xl">
-                  <img className='rounded-t-xl' src={project.imageURL} alt="" />
-                </div>
-                <div className="p-4 md:p-6">
-                  <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-500">
-                    {project.description}
-                  </p>
-                  <div className='flex flex-wrap gap-2 mt-2'>
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="inline-flex justify-center items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        {tech}
+              <div key={project._id} className="flex flex-col bg-white border shadow-sm rounded-xl">
+                <a
+                  rel='noopener noreferrer'
+                  href={`#/project/${project._id}`}
+                >
+                  <div className="flex flex-col items-center justify-center w-full h-fit rounded-t-xl">
+                    <img className='rounded-t-xl' src={project.imageURL} alt="" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500">
+                      {project.description}
+                    </p>
+                    <div className='flex flex-wrap gap-2 mt-2'>
+                      {project.techStack.map((tech) => (
+                        <span key={tech} className="inline-flex justify-center items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className='mt-2'>
+                      <span className="block mb-1 text-xs font-semibold text-blue-600 uppercase">
+                        {project.projectCategory}
                       </span>
-                    ))}
-                  </div>
-                  <div className='mt-2'>
-                    <span className="block mb-1 text-xs font-semibold text-blue-600 uppercase">
-                      {project.projectType}
-                    </span>
-                  </div>
-                  {/* <div className='mt-2'>
+                    </div>
+                    {/* <div className='mt-2'>
                     <span className="block mb-1 text-xs font-semibold text-blue-600 uppercase">
                       {project.visibility ? 'Visible' : 'Hidden'}
                     </span>
                   </div> */}
-                </div>
+                  </div>
+                </a>
                 <div className="flex mt-auto border-t border-gray-200 divide-x divide-gray-200">
                   {project.sourceCodeURL && (
                     <a
                       className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-medium text-gray-700 align-middle transition-all bg-white shadow-sm rounded-bl-xl hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 sm:p-4"
+                      target="_blank"
+                      rel="noreferrer noopener"
                       href={project.sourceCodeURL}
                     >
                       <GitHubIcon />
@@ -85,6 +143,8 @@ export default function ProjectsGridView() {
                     <a
                       className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-medium text-gray-700 align-middle transition-all bg-white shadow-sm rounded-br-xl hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 sm:p-4"
                       href={project.demoURL}
+                      target="_blank"
+                      rel="noreferrer noopener"
                     >
                       <LuGlobe />
                       Deployment
@@ -95,7 +155,7 @@ export default function ProjectsGridView() {
                       onClick={() => openVideoModal(project.youtubeURL)}
                       className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 text-sm font-medium text-gray-700 align-middle transition-all bg-white shadow-sm rounded-br-xl hover-bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 sm:p-4"
                     >
-                      <YoutubeIcon />
+                      <VideoIcon />
                       Youtube
                     </a>
                   )}

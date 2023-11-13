@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function AboutMe() {
   return (
     <section className="pt-8 bg-white">

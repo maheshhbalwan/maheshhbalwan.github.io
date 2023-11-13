@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlinePhone } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
@@ -31,7 +30,7 @@ function HeroTeamWork() {
               target="_blank"
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border rounded-lg bg-primary-600 hover:text-white border-primary-300 hover:bg-primary-700 focus:ring-4 focus:ring-primary-100"
             >
-              Let's Chat Maheshh &nbsp;
+              Let&apos;s Chat Maheshh &nbsp;
               <HiOutlinePhone />
             </Link>
           </div>

@@ -1,5 +1,3 @@
-import React from "react";
-
 import Hero from "./HeroHome";
 import GetInTouch from "./GetInTouch";
 import MySkills from "./MySkills";
