@@ -4,6 +4,7 @@ import MainLayout from "./layout/MainLayout";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import Portfolio from "./pages/portfolio/Portfolio";
+import ProjectPage from "./pages/projects/ProjectPage";
 import AddProject from "./components/AddProject";
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
         <MainLayout>
           <Routes>
             <Route index element={<Home />} />
-            <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/project/:projectId" element={<ProjectPage />} />
             <Route path="/add" element={<AddProject />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
